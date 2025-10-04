@@ -20,7 +20,7 @@ async function requestMP3(response, fee) {
   }).then(res => {
     console.log(res);
     response.data[0].url = res.data.data.src;
-    response.data[0].freeTrialInfo = null
+    response.data[0].freeTrialInfo = null;
     return response;
   });
 }

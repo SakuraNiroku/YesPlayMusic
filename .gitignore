@@ -31,7 +31,7 @@ NeteaseCloudMusicApi-master.zip
 
 # Local Netlify folder
 .netlify
-vercel.json
+# vercel.json
 # Devenv
 .devenv*
 devenv.local.nix
