@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { getAlbum } from '@/api/album';
 import { getArtist } from '@/api/artist';
 import { trackScrobble, trackUpdateNowPlaying } from '@/api/lastfm';
@@ -396,8 +397,7 @@ export default class {
     });
   }
   _getAudioSourceFromNetease(track) {
-    if (isAccountLoggedIn()) {
-      return getMP3(track.id).then(result => {
+    return getMP3(track.id).then(result => {
         if (!result.data[0]) return null;
         if (!result.data[0].url) return null;
         if (result.data[0].freeTrialInfo !== null) return null; // 跳过只能试听的歌曲
@@ -407,11 +407,7 @@ export default class {
         }
         return source;
       });
-    } else {
-      return new Promise(resolve => {
-        resolve(`https://music.163.com/song/media/outer/url?id=${track.id}`);
-      });
-    }
+    
   }
   async _getAudioSourceFromUnblockMusic(track) {
     console.debug(`[debug][Player.js] _getAudioSourceFromUnblockMusic`);
